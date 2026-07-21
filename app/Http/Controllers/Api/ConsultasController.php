@@ -18,7 +18,7 @@ class ConsultasController extends Controller
 
         return response()->json([
             'status' => 'success',
-            'message' => 'Ruta /api/prueba funcionando correctamente'
+            'data' => $asesores
         ]);
     }
 
