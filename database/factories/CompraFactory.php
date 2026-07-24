@@ -23,9 +23,13 @@ class CompraFactory extends Factory
         return [
             'fecha' => fake()->dateTimeBetween('-1 year', 'now'),
             'valor' => fake()->numberBetween(15000000, 100000000),
-            'cliente_id' => Cliente::factory(),
+            'cliente_id' => Cliente::inRandomOrder()->first()->id,
+            'asesor_id' => Asesor::inRandomOrder()->first()->id,
+            'automovil_id' => Automovil::inRandomOrder()->first()->id,
+
+            /*'cliente_id' => Cliente::factory(),
             'asesor_id' => Asesor::factory(),
-            'automovil_id' => Automovil::factory(),
+            'automovil_id' => Automovil::factory(),*/
         ];
     }
 }

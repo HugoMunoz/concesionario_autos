@@ -19,11 +19,18 @@ class AsesorFactory extends Factory
     public function definition(): array
     {
         return [
-            'nombre' => fake()->firstName() . ' ' . fake()->lastName(),
+
+            'nombre' => fake()->name(),
+            'email' => fake()->unique()->safeEmail(),
+            'celular' => fake()->phoneNumber(),
+            // Selecciona un concesionario aleatorio existente
+            'concesionario_id' => Concesionario::inRandomOrder()->first()->id ?? Concesionario::factory(),
+
+
+            /*'nombre' => fake()->firstName() . ' ' . fake()->lastName(),
             'email' => fake()->unique()->safeEmail(),
             'celular' => fake()->phoneNumber,
-            'concesionario_id' => Concesionario::inRandomOrder()->first()->id ?? Concesionario::factory()->create()->id,
+            'concesionario_id' => Concesionario::inRandomOrder()->first()->id ?? Concesionario::factory()->create()->id,*/
         ];
     }
 }
-

@@ -13,8 +13,6 @@ class AutomovilSeeder extends Seeder
         $concesionarios = Concesionario::all();
 
         // Crear automóviles asignando un concesionario aleatorio
-        Automovil::factory(30)->create([
-            'concesionario_id' => $concesionarios->random()->id,
-        ]);
+        Automovil::factory(30)->create();
     }
 }

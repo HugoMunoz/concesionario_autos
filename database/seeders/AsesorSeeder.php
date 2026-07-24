@@ -10,7 +10,14 @@ class AsesorSeeder extends Seeder
 {
     public function run(): void
     {
-        // Obtener todos los concesionarios existentes
+        if (Concesionario::count() == 0) {
+            Concesionario::factory()->count(5)->create();
+        }
+
+        Asesor::factory()->count(30)->create();
+    }
+}
+    /* Obtener todos los concesionarios existentes
         $concesionarios = Concesionario::all();
 
         // Si no hay concesionarios, crear uno por defecto
@@ -27,5 +34,4 @@ class AsesorSeeder extends Seeder
         Asesor::factory(30)->create([
             'concesionario_id' => $concesionarios->random()->id,
         ]);
-    }
-}
+    }*/
